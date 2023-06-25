@@ -3,7 +3,7 @@
 * Author: Matt Aaron Magnaye
 * Instructor: Professor David Harden
 * Date: 06/25/2023
-* Description: It is a number guessing game with a Human User. The user
+* Description: It is a number guessing game with a Human User. The user will think of a number between LOWER_LIMIT and UPPER_LIMIT, inclusive.
 *
 */
 
@@ -68,7 +68,7 @@ void playOneGame () {
         cout << "Great! Do you want to play again (y/n)? ";
         cin >> response;
     }
-    
+
     return 0;
 }
   
