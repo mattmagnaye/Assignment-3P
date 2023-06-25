@@ -12,12 +12,16 @@ using namespace std;
 
 const int LOWER_LIMIT = 1;
 const int UPPER_LIMIT = 100;
+char response;
 
-void getUserResponseToGuess(int guess, char& result)
-    cout << "My guess is " << 
-    
+void getUserResponseToGuess(int guess, char& result){
+    cout << "My guess is " << guess << ". Enter 'l' if your number is lower, 'h' if it is higher, 'c' if it is correct: ";
+    cin >> result;
+    }
 
-int getMidpoint(int low, int high)
+int getMidpoint(int lowerlimit, int higherlimit) {
+    return (lowerlimit + higherlimit) / 2;
+}
 
 void playOneGame () {
     int lowerlimit = LOWER_LIMIT;
@@ -29,7 +33,7 @@ void playOneGame () {
     while (true) {
         int guess = getMidpoint(lowerlimit, higherlimit);
 
-        getUserResponseToGuess(guess, response)
+        getUserResponseToGuess(guess, response);
 
         if (response == 'l') {
             higherlimit = guess - 1;
@@ -39,6 +43,7 @@ void playOneGame () {
            break;
         }
     }
+
     int main() {
     char response;
     
@@ -49,7 +54,6 @@ void playOneGame () {
         cout << "Great! Do you want to play again (y/n)? ";
         cin >> response;
     }
+ }
     return 0;
-    }
-
 }
