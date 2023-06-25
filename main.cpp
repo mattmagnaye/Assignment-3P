@@ -19,19 +19,6 @@ void getUserResponseToGuess(int guess, char& result)
 
 int getMidpoint(int low, int high)
 
-int main() {
-    char response;
-    
-    cout << "Ready to play (y/n)? ";
-    cin >> response;
-    while (response == 'y') {
-        playOneGame();
-        cout << "Great! Do you want to play again (y/n)? ";
-        cin >> response;
-    }
-    return 0;
-}
-
 void playOneGame () {
     int lowerlimit = LOWER_LIMIT;
     int higherlimit = UPPER_LIMIT;
@@ -44,8 +31,25 @@ void playOneGame () {
 
         getUserResponseToGuess(guess, response)
 
-        if (response == 'l')
+        if (response == 'l') {
+            higherlimit = guess - 1;
+        } else if (response == 'h') {
+            lowerlimit = guess + 1;
+        } else if (response == 'c') {
+           break;
+        }
     }
-
+    int main() {
+    char response;
+    
+    cout << "Ready to play (y/n)? ";
+    cin >> response;
+    while (response == 'y') {
+        playOneGame();
+        cout << "Great! Do you want to play again (y/n)? ";
+        cin >> response;
+    }
+    return 0;
+    }
 
 }
